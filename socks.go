@@ -138,7 +138,7 @@ func (cfg *Config) dialSocks5(targetAddr string) (conn net.Conn, err error) {
 	proxy := cfg.Host
 
 	// dial TCP
-	conn, err = net.Dial("tcp", proxy)
+	conn, err = net.DialTimeout("tcp", proxy, 5)
 	if err != nil {
 		return
 	}
